@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_All);
+ini_set('display_errors', 1);
 function echoPageHeader()
 {
     echo '<!DOCTYPE html>
@@ -25,7 +27,7 @@ function validP($param, &$paramError)
 {
         if (isset($_GET[$param]))
         {
-                if ((int)($_GET[$param]) != ($_GET[$param]))
+                if ((int)($_GET[$param]) != ($_GET[$param]) || !is_numeric($_GET[$param]))
                 {
                         echo "Invalid input $param must be an integer.<br>";
                         echo "Entered $_GET[$param].<br>";
